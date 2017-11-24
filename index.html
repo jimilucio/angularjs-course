@@ -4,15 +4,55 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <title>Conte.it - Portale</title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+    crossorigin="anonymous">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+    crossorigin="anonymous">
 </head>
-<body ng-app="myApplication">
- Inserisci il tuo nome:
- <input type="text" ng-model="myName">
- <br>
- Il tuo nome: {{myName}}
+<body>
+  
+  <div class="container" ng-app="myApplication">
+
+    <div class="page-header">
+      <h1>Contact Manager</h1>
+    </div>
+
+
+    <div ng-controller="ContactController">
+      <div class="row">
+        <div class="col-md-8">
+          <h3>Compila il form:</h3>
+          <form>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Inserisci il tuo nome:</label>
+                  <input type="text" class="form-control" ng-model="myName">
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Inserisci il tuo anno di nascita:</label>
+                  <input type="text" class="form-control" ng-model="yearOfBirth">
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="col-md-4">
+          <h3>Dati utente:</h3>
+          Ciao {{myName}}
+          <br> Sei nato nel {{yearOfBirth}}
+          <br> Hai {{age()}} anni
+        </div>
+      </div>
+    </div>
+  </div>
+
  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.20/angular.min.js"></script>
- <script>
-  angular.module('myApplication', []);
- </script>
+ <script src="app/index.js"></script>
 </body>
 </html>
