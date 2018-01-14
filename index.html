@@ -30,7 +30,7 @@
               <div class="col-md-12">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Inserisci il tuo nome:</label>
-                  <input type="text" class="form-control" ng-model="myName">
+                  <input type="text" class="form-control" ng-model="fullName">
                 </div>
               </div>
               <div class="col-md-12">
@@ -44,9 +44,10 @@
         </div>
         <div class="col-md-4">
           <h3>Dati utente:</h3>
-          Ciao {{myName}}
+          Ciao {{fullName}}
           <br> Sei nato nel {{yearOfBirth}}
           <br> Hai {{age()}} anni
+          <br> Counter {{counter}}
         </div>
       </div>
     </div>

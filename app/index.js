@@ -1,4 +1,4 @@
-angular.module('myApplication', [])
+var app = angular.module('myApplication', [])
 .config([function () {
 
 	/* Configuration is where you configure providers ( not instances) */
@@ -15,20 +15,27 @@ angular.module('myApplication', [])
 }]);
 
 
-angular.module('myApplication')
-	.controller('ContactController', function ($scope, $log) {
-		$scope.fullName = '';
-		$scope.yearOfBirth = '';
-		$scope.age = function () {	
-			if ($scope.yearOfBirth > 0){
-				var currDate = new Date();
-				var currentYear = currDate.getFullYear();
-				var age = currentYear - $scope.yearOfBirth;
-				$log.debug('Age of the user: ', age);
-				return age;
-			}
-		};
+
+app.controller('ContactController', function ($scope, $log) {
+		
+	$scope.fullName = '';
+	$scope.counter = 0;
+
+	$scope.$watch('fullName', function (newValue, oldValue, $scope) {
+		$scope.counter = $scope.counter + 1;
 	});
+
+	$scope.yearOfBirth = '';
+	$scope.age = function () {	
+		if ($scope.yearOfBirth > 0){
+			var currDate = new Date();
+			var currentYear = currDate.getFullYear();
+			var age = currentYear - $scope.yearOfBirth;
+			$log.debug('Age of the user: ', age);
+			return age;
+		}
+	};
+});
 
 
 angular.bootstrap(document.getElementById("container"), ["myApplication"]);
