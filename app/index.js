@@ -4,8 +4,6 @@ angular.module('myApplication', [])
 	/* Configuration is where you configure providers ( not instances) */
 	console.log("Configuration hook");
 
-
-
 }])
 .run([function () {
 	
@@ -14,21 +12,20 @@ angular.module('myApplication', [])
 
 }]);
 
-
 angular.module('myApplication')
-	.controller('ContactController', function ($scope, $log) {
-		$scope.fullName = '';
-		$scope.yearOfBirth = '';
-		$scope.age = function () {	
-			if ($scope.yearOfBirth > 0){
-				var currDate = new Date();
-				var currentYear = currDate.getFullYear();
-				var age = currentYear - $scope.yearOfBirth;
-				$log.debug('Age of the user: ', age);
-				return age;
-			}
+.controller('MainController', function () {
+	this.contactList = [];
+	this.addNew = function (data) {	
+		console.log(data);
+		this.contactList.push(data);
+	};
+})
+.controller('ContactController', function () {
+	this.item = {};
+	this.resetForm = function(){
+		this.item = {
+			fullName: '',
+			yearOfBirth: ''
 		};
-	});
-
-
-angular.bootstrap(document.getElementById("container"), ["myApplication"]);
+	};
+});

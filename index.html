@@ -1,58 +1,67 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>Conte.it - Portale</title>
-  <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-    crossorigin="anonymous">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Conte.it - AngularJS Sample APP</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+      crossorigin="anonymous">
 
-  <!-- Optional theme -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
-    crossorigin="anonymous">
-</head>
-<body>
-  
-  <div class="container" ng-app="myApplication">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+      crossorigin="anonymous">
+  </head>
+  <body>
+    
+    <div class="container" ng-app="myApplication">
 
-    <div class="page-header">
-      <h1>Contact Manager</h1>
-    </div>
+      <div class="page-header">
+        <h1>Contact Manager</h1>
+      </div>
 
-
-    <div ng-controller="ContactController">
-      <div class="row">
-        <div class="col-md-8">
-          <h3>Compila il form:</h3>
-          <form>
-            <div class="row">
-              <div class="col-md-12">
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Inserisci il tuo nome:</label>
-                  <input type="text" class="form-control" ng-model="myName">
+      <div ng-controller="MainController as main">
+        <div class="row">
+          <div class="col-md-8" 
+            ng-controller="ContactController as contact">
+            <h3>New user:</h3>
+            <form name="contactForm" novalidate>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Full Name:</label>
+                    <input type="text" class="form-control" ng-model="contact.item.fullName">
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Year of birth:</label>
+                    <input type="text" class="form-control" ng-model="contact.item.yearOfBirth">
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <input 
+                      type="submit" 
+                      class="button success" 
+                      ng-click="main.addNew(contact.item); contact.resetForm();" 
+                      value="Salva">
+                  </div>
                 </div>
               </div>
-              <div class="col-md-12">
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Inserisci il tuo anno di nascita:</label>
-                  <input type="text" class="form-control" ng-model="yearOfBirth">
-                </div>
-              </div>
+            </form>
+          </div>
+          <div class="col-md-4">
+            <h3>Contact list:</h3>
+            <div class="" ng-repeat="item in main.contactList">
+             {{item.fullName}} - {{item.yearOfBirth}}
             </div>
-          </form>
-        </div>
-        <div class="col-md-4">
-          <h3>Dati utente:</h3>
-          Ciao {{myName}}
-          <br> Sei nato nel {{yearOfBirth}}
-          <br> Hai {{age()}} anni
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.20/angular.min.js"></script>
- <script src="app/index.js"></script>
-</body>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.20/angular.min.js"></script>
+  <script src="app/index.js"></script>
+  </body>
 </html>
