@@ -51,7 +51,11 @@
               </div>
             </form>
           </div>
-          <contact></contact>
+          {{main.contactList}}
+          <contact 
+            list="main.contactList" 
+            delete="main.delete"
+            edit="main.edit"></contact>
         </div>
       </div>
     </div>

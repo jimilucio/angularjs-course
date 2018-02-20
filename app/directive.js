@@ -5,12 +5,9 @@ angular.module('myApplication')
       restrict: 'E',
       templateUrl: 'contact.html',
       scope: {
-        'contacts': '=',
+        'list': '=',
         'delete': '&',
         'edit': '&'
-      },
-      link: function(){
-
       }
     };
 
