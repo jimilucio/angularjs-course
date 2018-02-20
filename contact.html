@@ -1,0 +1,10 @@
+<h3>Contact list:</h3>
+<div class="" ng-repeat="item in contacts">
+  {{item.fullName}} - {{item.yearOfBirth}} 
+  <button type="button" 
+    class="btn btn-primary btn-sm" 
+    ng-click="delete($index)">Modifica</button>
+  <button type="button" 
+    class="btn btn-warning btn-sm" 
+    ng-click="edit($index)">Elimina</button>
+</div>
