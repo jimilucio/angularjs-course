@@ -24,13 +24,14 @@
         <div class="row">
           <div class="col-md-8" 
             ng-controller="ContactController as contact">
-            <h3>New user:</h3>
+            <h3>New user: </h3>
             <form name="contactForm" novalidate>
               <div class="row">
                 <div class="col-md-12">
                   <div class="form-group">
                     <label for="exampleInputEmail1">Full Name:</label>
-                    <input type="text" class="form-control" ng-model="contact.item.fullName">
+                    <input type="text" class="form-control" 
+                      ng-model="contact.item.fullName">
                   </div>
                 </div>
                 <div class="col-md-12">
@@ -51,11 +52,10 @@
               </div>
             </form>
           </div>
-          {{main.contactList}}
           <contact 
             list="main.contactList" 
-            delete="main.delete"
-            edit="main.edit"></contact>
+            delete="main.delete(element)"
+            edit="main.edit(element)"></contact>
         </div>
       </div>
     </div>

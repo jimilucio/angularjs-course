@@ -8,7 +8,11 @@ angular.module('myApplication')
         'list': '=',
         'delete': '&',
         'edit': '&'
+      },
+      link: function($scope){
+        console.log($scope);
       }
+
     };
 
   });
