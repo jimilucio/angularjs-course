@@ -47,6 +47,11 @@
                       class="button success" 
                       ng-click="main.addNew(contact.item); contact.resetForm();" 
                       value="Salva">
+                      <input 
+                      type="submit" 
+                      class="button warning" 
+                      ng-click="contact.resetForm();" 
+                      value="Nuovo">
                   </div>
                 </div>
               </div>
@@ -64,5 +69,6 @@
   <script src="app/index.js"></script>
   <script src="app/controller.js"></script>
   <script src="app/directive.js"></script>
+  <script src="app/services.js"></script>
   </body>
 </html>

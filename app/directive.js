@@ -10,7 +10,6 @@ angular.module('myApplication')
         'edit': '&'
       },
       link: function($scope){
-        console.log($scope);
       }
 
     };
