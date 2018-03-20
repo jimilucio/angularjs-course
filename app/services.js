@@ -1,20 +1,9 @@
 var app = angular.module('myApplication');
 
 
-app.factory('contactService', function($log, $timeout) {
+app.factory('contactService', function($log, $timeout, $http) {
 
-	this.contactList = [];
-	this.contactList.push({
-		id: 1,
-		fullName: 'Luciano Murruni',
-		yearOfBirth: 1982
-	});
-
-	this.contactList.push({
-		id: 2,
-		fullName: 'Antonio Sulla',
-		yearOfBirth: 1985
-	});
+	var that = this;
 
 	/** 
 	 * LOCAL FUNCTIONS
@@ -28,10 +17,10 @@ app.factory('contactService', function($log, $timeout) {
 	 */
 	function updateItem(data){
 		$log.debug('Update item with data: ', data);
-		for (var i = 0; i < this.contactList.length; i++){
-			if (this.contactList[i].id === data.id){
-				this.contactList[i].fullName = data.fullName;
-				this.contactList[i].yearOfBirth = data.yearOfBirth;
+		for (var i = 0; i < that.contactList.length; i++){
+			if (that.contactList[i].id === data.id){
+				that.contactList[i].fullName = data.fullName;
+				that.contactList[i].yearOfBirth = data.yearOfBirth;
 			}
 		}
 	}
@@ -41,13 +30,13 @@ app.factory('contactService', function($log, $timeout) {
 	 * 
 	 * @param {*} data with user data to add
 	 */
-	this.addNew = function (data) {
+	that.addNew = function (data) {
 		//console.log(data);
 		if (data.id!=='') {
 			updateItem(data);
 		} else {
-			data.id = this.contactList.length+1;
-			this.contactList.push(data);
+			data.id = that.contactList.length+1;
+			that.contactList.push(data);
 		}
 	};
 
@@ -56,11 +45,23 @@ app.factory('contactService', function($log, $timeout) {
 	 * 
 	 * @param {*} element with the index of the user 
 	 */
-	this.delete = function (element){
-		this.contactList.splice(element, 1);
-		return this.contactList;
+	that.delete = function (element){
+		that.contactList.splice(element, 1);
+		return that.contactList;
 	};
+
+	that.$contacts = $http({
+		method: 'GET',
+		url: 'http://localhost:3000/contacts'
+	});
+
+	that.$contacts.then(function success(response){
+		$log.debug('Service $contacts');
+		that.contactList = response.data;
+	}, function error(err){
+		$log.error('Service $contacts: ', err);
+	});
   
-	return this;
+	return that;
 	
 });
