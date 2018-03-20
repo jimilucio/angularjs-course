@@ -1,1 +1,6 @@
-{}
+{
+	"contacts": [
+		{"name": "Antonio Sulla", "yearOfBirth":"1983"},
+		{"name": "Pasquale Napolitano", "yearOfBirth":"1977"}
+	]
+}
