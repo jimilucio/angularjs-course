@@ -4,12 +4,12 @@ var path = require('path');
 
 //Special folders and paths.
 var paths = {
-    root: './',
-    app: './app/',
-    www: './www/',
-    doc: './doc',
-    report: './report/jshint.html',
-    view: './index.html'
+  root: './',
+  app: './app/',
+  www: './www/',
+  doc: './doc',
+  report: './report/jshint.html',
+  view: './index.html',
 };
 
 /**
@@ -18,54 +18,46 @@ var paths = {
  * @param {boolean} recursive - is search recursive?
  * @return {string}
  */
-exports.appFiles = function (extension, recursive) {
-    return path.join(paths.app, (recursive ? '**/*.' : '*.') + extension);
+exports.appFiles = function(extension, recursive) {
+  return path.join(paths.app, (recursive ? '**/*.' : '*.') + extension);
 };
 
 /**
  * Get the root folder.
  * @returns {string}
  */
-exports.getRootPath = function () {
-    return path.join(paths.root);
+exports.getRootPath = function() {
+  return path.join(paths.root);
 };
 
 /**
  * Get the application folder.
  * @returns {string}
  */
-exports.getAppPath = function () {
-    return path.join(paths.app);
+exports.getAppPath = function() {
+  return path.join(paths.app);
 };
 
 /**
  * Get the distribution folder.
  * @returns {string}
  */
-exports.getDistPath = function () {
-    return path.join(paths.www);
-};
-
-/**
- * Get the documentation folder.
- * @returns {string}
- */
-exports.getDocPath = function () {
-    return path.join(paths.doc);
+exports.getDistPath = function() {
+  return path.join(paths.www);
 };
 
 /**
  * Get the report file.
  * @returns {string}
  */
-exports.getReportPath = function () {
-    return path.join(paths.report);
+exports.getReportPath = function() {
+  return path.join(paths.report);
 };
 
 /**
  * Get the main view.
  * @return {string}
  */
-exports.getViewPath = function () {
-    return path.join(paths.view);
+exports.getViewPath = function() {
+  return path.join(paths.view);
 };

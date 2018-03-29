@@ -7,5 +7,4 @@ require('./gulp/script');
 require('./gulp/server');
 require('./gulp/style');
 require('./gulp/vendor');
-require('./gulp/documentation');
 require('./gulp/jshint');
