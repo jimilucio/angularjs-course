@@ -13,73 +13,28 @@
       crossorigin="anonymous">
   </head>
   <body>
-    
+    <div class="page-header">
+      <h1>Contact Manager</h1>
+    </div>
     <div class="container" ng-app="myApplication">
-
-      <div class="page-header">
-        <h1>Contact Manager</h1>
-      </div>
-
-      <div ng-controller="MainController as main">
-        <div class="row">
-          <div class="col-md-8" 
-            ng-controller="ContactController as contact">
-            <h3>New user: </h3>
-            <form name="contactForm" novalidate>
-              <div class="row">
-                <div class="col-md-12">
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">Full Name:</label>
-                    <input type="text" class="form-control" 
-                      ng-model="contact.item.fullName">
-                  </div>
-                </div>
-                <div class="col-md-12">
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">Year of birth:</label>
-                    <input type="text" class="form-control" ng-model="contact.item.yearOfBirth">
-                  </div>
-                </div>
-                <div class="col-md-12">
-                  <div class="form-group">
-                    <input 
-                      type="submit" 
-                      class="button success" 
-                      ng-click="main.addNew(contact.item); contact.resetForm();" 
-                      value="Salva">
-                      <input 
-                      type="submit" 
-                      class="button warning" 
-                      ng-click="contact.resetForm();" 
-                      value="Nuovo">
-                  </div>
-                </div>
-              </div>
-            </form>
-          </div>
-          <contact 
-            list="main.contactList" 
-            delete="main.delete(element)"
-            edit="main.edit(element)"></contact>
-        </div>
-      </div>
+      <ui-view></ui-view>
     </div>
 
     <!-- vendors:js -->
-    <script src="/bower_components/angular/angular.js?v=1522332129981"></script>
-    <script src="/bower_components/angular-route/angular-route.js?v=1522332129981"></script>
-    <script src="/bower_components/angular-animate/angular-animate.js?v=1522332129981"></script>
+    <script src="/bower_components/angular/angular.js?v=1522337428195"></script>
+    <script src="/bower_components/angular-animate/angular-animate.js?v=1522337428195"></script>
+    <script src="/bower_components/angular-ui-router/release/angular-ui-router.js?v=1522337428195"></script>
     <!-- endinject -->
 
     <!-- app:js -->
-    <script src="/app/contactList/contactList.controller.js?v=1522332130114"></script>
-    <script src="/app/index.js?v=1522332130114"></script>
-    <script src="/app/contactDetail/contactDetails.controller.js?v=1522332130114"></script>
-    <script src="/app/services.js?v=1522332130114"></script>
-    <script src="/app/provider.js?v=1522332130114"></script>
-    <script src="/app/directive.js?v=1522332130114"></script>
-    <script src="/app/controller.js?v=1522332130114"></script>
-    <script src="/app/app.config.js?v=1522332130114"></script>
+    <script src="/app/app.js?v=1522337428349"></script>
+    <script src="/app/contactList/contactList.controller.js?v=1522337428349"></script>
+    <script src="/app/contactList/contactDirective.js?v=1522337428349"></script>
+    <script src="/app/contactDetail/contactDetails.controller.js?v=1522337428349"></script>
+    <script src="/app/services.js?v=1522337428349"></script>
+    <script src="/app/provider.js?v=1522337428349"></script>
+    <script src="/app/controller.js?v=1522337428349"></script>
+    <script src="/app/app.config.js?v=1522337428349"></script>
     <!-- endinject -->
   </body>
 </html>

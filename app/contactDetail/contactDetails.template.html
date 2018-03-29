@@ -1,0 +1,32 @@
+<h3>New user: </h3>
+<form name="contactForm" novalidate>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="form-group">
+				<label for="exampleInputEmail1">Full Name:</label>
+				<input type="text" class="form-control" 
+					ng-model="contact.item.fullName">
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="form-group">
+				<label for="exampleInputEmail1">Year of birth:</label>
+				<input type="text" class="form-control" ng-model="contact.item.yearOfBirth">
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="form-group">
+				<input 
+					type="submit" 
+					class="button success" 
+					ng-click="main.addNew(contact.item); contact.resetForm();" 
+					value="Salva">
+					<input 
+					type="submit" 
+					class="button warning" 
+					ng-click="contact.resetForm();" 
+					value="Nuovo">
+			</div>
+		</div>
+	</div>
+</form>
