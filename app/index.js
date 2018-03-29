@@ -1,9 +1,10 @@
 angular
   .module('myApplication', ['ngRoute'])
   .config([
-    function() {
+    '$routeProvider',
+    function($routeProvider) {
       /* Configuration is where you configure providers ( not instances) */
-      $routeProviders
+      $routeProvider
         .when('/contacts', {
           templateUrl: 'contact-list.html',
           controller: 'contactListController',

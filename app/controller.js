@@ -5,7 +5,8 @@ app
     $scope,
     contactService,
     $log,
-    $timeout
+    $timeout,
+    $routeParams
   ) {
     var that = this;
 
