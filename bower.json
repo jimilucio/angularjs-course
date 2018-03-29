@@ -2,24 +2,13 @@
   "name": "angularjs-course",
   "description": "Just a simple course project for angularjs",
   "main": "index.html",
-  "authors": [
-    "Luciano Murruni"
-  ],
+  "authors": ["Luciano Murruni"],
   "license": "ISC",
-  "keywords": [
-    "angularjs",
-    "course"
-  ],
+  "keywords": ["angularjs", "course"],
   "homepage": "https://github.com/jimilucio/angularjs-course",
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "test",
-    "tests"
-  ],
+  "ignore": ["**/.*", "node_modules", "bower_components", "test", "tests"],
   "dependencies": {
     "angular": "^1.6.9",
-    "angular-ui-router": "^1.0.15"
+    "angular-route": "^1.6.9"
   }
 }

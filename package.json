@@ -4,8 +4,8 @@
   "description": "Just a simple course project for angularjs",
   "main": "index.html",
   "scripts": {
-    "start":
-      "./node_modules/.bin/json-server --watch ./json/db.json & gulp server:dev",
+    "start": "gulp build:dev && gulp server:dev",
+    "database": "./node_modules/.bin/json-server --watch ./json/db.json &",
     "build": "gulp build:dev",
     "production": "gulp build:prod",
     "test": "gulp test",
