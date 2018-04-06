@@ -1,0 +1,39 @@
+<h3>New user: </h3>
+<form name="contactForm" 
+	ng-submit="detailCtrl.submit(contactForm)"
+	novalidate>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="form-group">
+				<label for="exampleInputEmail1">Full Name:</label>
+				<input type="text" class="form-control" 
+					name="fullName"
+					ng-model="detailCtrl.item.fullName"
+					required
+					ng-minlength="4">
+					<span ng-show="contactForm.fullName.$error.required">
+										This is a required field
+					</span>
+					<span ng-show="contactForm.fullName.$error.minlength">
+										Minimum length required is 4
+					</span>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="form-group">
+				<label for="exampleInputEmail1">Year of birth:</label>
+				<input type="text" name="yearOfBirth" class="form-control" 
+					ng-model="detailCtrl.item.yearOfBirth">
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="form-group">
+				<input 
+					type="submit" 
+					class="button success" 
+					ng-disabled="contactForm.$invalid"
+					value="Salva">
+			</div>
+		</div>
+	</div>
+</form>
