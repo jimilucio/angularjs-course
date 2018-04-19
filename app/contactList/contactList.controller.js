@@ -17,6 +17,11 @@
       });
     }
 
+    that.delete = function(item){
+      contactService.delete(item)
+        .finally(updateContactListModel);
+    }
+
     updateContactListModel();
   }
 })();

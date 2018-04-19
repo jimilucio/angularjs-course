@@ -15,6 +15,6 @@ app.config([
       controllerAs: 'detailCtrl',
       templateUrl: '/app/contactDetail/contactDetail.template.html',
     });
-    $urlRouterProvider.otherwise('/contactList');
+    $urlRouterProvider.otherwise('contactList');
   },
 ]);

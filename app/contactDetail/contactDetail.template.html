@@ -8,7 +8,7 @@
 				<label for="exampleInputEmail1">Full Name:</label>
 				<input type="text" class="form-control" 
 					name="fullName"
-					ng-model="detailCtrl.item.fullName"
+					ng-model="detailCtrl.contactModel.fullName"
 					required
 					ng-minlength="4">
 					<span ng-show="contactForm.fullName.$error.required">
@@ -21,19 +21,33 @@
 		</div>
 		<div class="col-md-12">
 			<div class="form-group">
-				<label for="exampleInputEmail1">Year of birth:</label>
+				<label for="exampleInputEmail1">Date of birth:</label>
 				<input type="text" name="yearOfBirth" class="form-control" 
-					ng-model="detailCtrl.item.yearOfBirth">
+					ng-model="detailCtrl.contactModel.yearOfBirth"
+					required
+					valid-date>
+
+					<span ng-show="contactForm.yearOfBirth.$error.required">
+						This is a required field
+					</span>
+					<span ng-show="contactForm.yearOfBirth.$error.validDate">
+						Please insert a valid date
+					</span>
 			</div>
 		</div>
 		<div class="col-md-12">
 			<div class="form-group">
 				<input 
 					type="submit" 
-					class="button success" 
+					class="btn btn-success btn-sm"
 					ng-disabled="contactForm.$invalid"
 					value="Salva">
 			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-1 col-md-offset-11">
+			<a ui-sref="contactList()" class="btn btn-danger btn-sm">indietro</a>
 		</div>
 	</div>
 </form>

@@ -2,7 +2,8 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Conte.it - AngularJS Sample APP</title>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
@@ -11,29 +12,35 @@
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
       crossorigin="anonymous">
+    
+      <!-- styles:css -->
+    <link rel="stylesheet" href="/www/assets/style.css?v=1524123608049">
+    <!-- endinject -->
   </head>
   <body>
-    <div class="page-header">
-      <h1>Contact Manager</h1>
-    </div>
     <div class="container" ng-app="myApplication">
+      <header></header>
+      
       <ui-view>...loading</ui-view>
+      
     </div>
-
     <!-- vendors:js -->
-    <script src="/bower_components/angular/angular.js?v=1523011535466"></script>
-    <script src="/bower_components/angular-animate/angular-animate.js?v=1523011535466"></script>
-    <script src="/bower_components/angular-ui-router/release/angular-ui-router.js?v=1523011535466"></script>
+    <script src="/bower_components/angular/angular.js?v=1524123607849"></script>
+    <script src="/bower_components/angular-animate/angular-animate.js?v=1524123607849"></script>
+    <script src="/bower_components/angular-ui-router/release/angular-ui-router.js?v=1524123607849"></script>
+    <script src="/bower_components/moment/moment.js?v=1524123607849"></script>
     <!-- endinject -->
 
     <!-- app:js -->
-    <script src="/app/app.js?v=1523011535546"></script>
-    <script src="/app/contactList/contactList.controller.js?v=1523011535546"></script>
-    <script src="/app/contactList/contactDirective.js?v=1523011535546"></script>
-    <script src="/app/contactDetail/contactDetail.controller.js?v=1523011535546"></script>
-    <script src="/app/services.js?v=1523011535546"></script>
-    <script src="/app/provider.js?v=1523011535546"></script>
-    <script src="/app/app.config.js?v=1523011535546"></script>
+    <script src="/app/app.js?v=1524123607930"></script>
+    <script src="/app/shared/validation/validDate.directive.js?v=1524123607930"></script>
+    <script src="/app/shared/header/header.directive.js?v=1524123607930"></script>
+    <script src="/app/contactList/contactList.controller.js?v=1524123607930"></script>
+    <script src="/app/contactList/contactDirective.js?v=1524123607930"></script>
+    <script src="/app/contactDetail/contactDetail.controller.js?v=1524123607930"></script>
+    <script src="/app/services.js?v=1524123607930"></script>
+    <script src="/app/provider.js?v=1524123607930"></script>
+    <script src="/app/app.config.js?v=1524123607930"></script>
     <!-- endinject -->
   </body>
 </html>

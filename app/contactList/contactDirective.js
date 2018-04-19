@@ -1,11 +1,10 @@
 angular.module('myApplication').directive('contact', function() {
   return {
     restrict: 'E',
-    templateUrl: '/app/contactList/contact.html',
+    templateUrl: '/app/contactList/contact.template.html',
     scope: {
       list: '=',
-      delete: '&',
-      edit: '&',
+      delete: '&'
     },
     link: function($scope) {},
   };

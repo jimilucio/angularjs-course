@@ -15,10 +15,13 @@
       <td>{{item.yearOfBirth}}</td>
       <td><button type="button" 
         class="btn btn-primary btn-sm" 
-        ng-click="edit({element: $index})"><i class="glyphicon glyphicon-glyphicon-edit" data-unicode="e065"></i></button></td>
+        ui-sref="contactDetail({contactId: {{item.id}}})">
+        <i class="glyphicon glyphicon-glyphicon-edit" data-unicode="e065"></i></button></td>
       <td><button type="button" 
         class="btn btn-warning btn-sm" 
-        ng-click="delete({element: $index})"><i class="glyphicon glyphicon-glyphicon-trash" data-unicode="e020"></i></button></td>
+        ng-click="delete({element: item.id})">
+        <i class="glyphicon glyphicon-glyphicon-trash" data-unicode="e020"></i></button></td>
     </tr>
   </tbody>
+  
 </table>

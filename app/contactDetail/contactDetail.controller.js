@@ -1,9 +1,9 @@
 var app = angular.module('myApplication');
 
 app.controller('contactDetailController', contactDetail);
-contactDetail.$inject = ['$state', 'contactService'];
+contactDetail.$inject = ['$state', '$log', 'contactService'];
 
-function contactDetail($state, contactService) {
+function contactDetail($state, $log, contactService) {
   var that = this;
   that.contactModel = {
     id: null,
@@ -11,13 +11,22 @@ function contactDetail($state, contactService) {
     yearOfBirth: '',
   };
   if ($state.params.contactId > 0) {
-    that.contactModel = contactService.getContact($state.params.contactId);
+    var $contact = contactService.getContact($state.params.contactId);
+    $contact.then(
+      function success(response) {
+        $log.debug('Service get contact');
+        that.contactModel = response.data;
+      },
+      function error(err) {
+        $log.error('Service get contact: ', err);
+      }
+    );
   }
 
   that.submit = function(contactForm) {
     console.log(contactForm);
-    contactService.addNew(data).finally(function() {
-      console.log('Add/Edit contact ok');
+    contactService.addNew(that.contactModel).finally(function() {
+      $log.debug('Add/Edit contact ok');
     });
   };
 }

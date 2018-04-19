@@ -10,7 +10,7 @@ var config = require('./config');
 //Compile Sass files.
 gulp.task('styles:dev:compile', function() {
   return gulp
-    .src(config.appFiles('sass', true))
+    .src(config.appFiles('scss', true))
     .pipe(sass())
     .pipe(gulp.dest(config.getDistPath()));
 });
@@ -32,7 +32,7 @@ gulp.task('styles:dev', ['styles:dev:compile'], function() {
 //Compile and bundle SASS files.
 gulp.task('styles:prod:compile', function() {
   return gulp
-    .src(config.appFiles('sass', true))
+    .src(config.appFiles('scss', true))
     .pipe(sass({ compress: true }))
     .pipe(concatCss('style.min.css'))
     .pipe(gulp.dest(config.getDistPath()));

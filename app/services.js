@@ -15,13 +15,7 @@ app.factory('contactService', function($log, $timeout, $http, $q) {
    */
   function updateItem(data) {
     $log.debug('Update item with data: ', data);
-    return $http.patch('http://localhost:3000/contacts', data);
-    // for (var i = 0; i < that.contactList.length; i++) {
-    //   if (that.contactList[i].id === data.id) {
-    //     that.contactList[i].fullName = data.fullName;
-    //     that.contactList[i].yearOfBirth = data.yearOfBirth;
-    //   }
-    // }
+    return $http.patch('http://localhost:3000/contacts/' + data.id, data);
   }
 
   /**
@@ -31,17 +25,16 @@ app.factory('contactService', function($log, $timeout, $http, $q) {
    */
   that.addNew = function(data) {
     //console.log(data);
-    if (data.id !== '') {
+    if (data.id>0) {
       return updateItem(data);
     } else {
-      data.id = that.contactList.length + 1;
       return $http
         .post('http://localhost:3000/contacts', data)
         .then(function(response) {
           $log.debug('Item saved: ', data);
         })
         .catch(function(err) {
-          $log.errr(err);
+          $log.err(err);
         });
     }
   };
@@ -52,8 +45,19 @@ app.factory('contactService', function($log, $timeout, $http, $q) {
    * @param {*} element with the index of the user
    */
   that.delete = function(element) {
-    that.contactList.splice(element, 1);
-    return that.contactList;
+    
+    //console.log(data);
+    if (element !== '') {
+      return $http
+        .delete('http://localhost:3000/contacts/'+element)
+        .then(function(response) {
+          $log.debug('Item saved: ', response);
+        })
+        .catch(function(err) {
+          $log.err(err);
+        });
+    }
+    
   };
 
   that.updateContactList = function updateContactList() {
@@ -73,6 +77,10 @@ app.factory('contactService', function($log, $timeout, $http, $q) {
 
   that.getContactList = function() {
     return that.contactList;
+  };
+
+  that.getContact = function(idContact) {
+    return $http.get('http://localhost:3000/contacts/' + idContact);
   };
 
   return that;

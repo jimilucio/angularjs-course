@@ -2,8 +2,8 @@
   "contacts": [
     {
       "id": 1,
-      "fullName": "Antonio Sulla",
-      "yearOfBirth": "1983"
+      "fullName": "Alessandro Magno",
+      "yearOfBirth": "1980"
     },
     {
       "id": 2,
@@ -11,59 +11,24 @@
       "yearOfBirth": "1977"
     },
     {
-      "id": 3,
-      "fullName": "tesst",
-      "yearOfBirth": "test"
+      "id": 6,
+      "fullName": "Antonio Sulla",
+      "yearOfBirth": "10/11/2012"
     },
     {
       "id": 4,
-      "fullName": "test",
-      "yearOfBirth": "test"
+      "fullName": "Diego Esposit",
+      "yearOfBirth": "19/09/1980"
     },
     {
       "id": 5,
-      "fullName": "test2",
-      "yearOfBirth": "test4"
-    },
-    {
-      "id": 6,
-      "fullName": "pippo",
-      "yearOfBirth": "12323"
+      "fullName": "Carlo Cracco",
+      "yearOfBirth": "19/11/2015"
     },
     {
       "id": 7,
-      "fullName": "",
-      "yearOfBirth": ""
-    },
-    {
-      "id": 8,
-      "fullName": "poppopopopo",
-      "yearOfBirth": "18781718"
-    },
-    {
-      "id": 9,
-      "fullName": "nano",
-      "yearOfBirth": "12973"
-    },
-    {
-      "id": 10,
-      "fullName": "mano",
-      "yearOfBirth": "1233"
-    },
-    {
-      "id": 11,
-      "fullName": "pluto",
-      "yearOfBirth": "1298"
-    },
-    {
-      "id": 12,
-      "fullName": "paperino",
-      "yearOfBirth": "1234"
-    },
-    {
-      "id": 13,
-      "fullName": "minnie",
-      "yearOfBirth": "1982"
+      "fullName": "Roberto Carlos",
+      "yearOfBirth": "01/01/1980"
     }
   ]
 }
