@@ -2,9 +2,9 @@
   var app = angular.module('myApplication');
 
   app.controller('contactListController', contactList);
-
+  
   contactList.$inject = ['contactService', '$log'];
-
+  
   function contactList(contactService, $log) {
     var that = this;
 

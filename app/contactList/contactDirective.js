@@ -1,4 +1,5 @@
-angular.module('myApplication').directive('contact', function() {
+angular.module('myApplication')
+  .directive('contact', function() {
   return {
     restrict: 'E',
     templateUrl: '/app/contactList/contact.template.html',
