@@ -8,20 +8,8 @@ describe('Contact Service', function() {
   beforeEach(
     inject(function(_contactService_, _$injector_) {
       ContactService = _contactService_;
-      $httpBackend = _$injector_.get('$httpBackend');
-
-      contactListHandler = $httpBackend.when('GET', 'http://localhost:3000/contacts').respond({
-        contacts: [
-          {
-            id: 1,
-            fullName: 'Alessandro Magno',
-            yearOfBirth: '1980',
-          },
-        ],
-      });
     })
 	);
-
 
   // A simple test to verify the Users service exists
   it('Contact service should exist', function() {

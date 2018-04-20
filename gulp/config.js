@@ -18,8 +18,9 @@ var paths = {
  * @param {boolean} recursive - is search recursive?
  * @return {string}
  */
-exports.appFiles = function(extension, recursive) {
-  return path.join(paths.app, (recursive ? '**/*.' : '*.') + extension);
+exports.appFiles = function(extension, recursive, exclude) {
+  var lists = path.join(paths.app, (recursive ? '**/*.' : '*.') + extension);
+  return lists;
 };
 
 /**

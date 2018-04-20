@@ -4,12 +4,15 @@
   "description": "Just a simple course project for angularjs",
   "main": "index.html",
   "scripts": {
-    "start": "npm install && bower install && gulp build:dev && gulp server:dev",
+    "prestart": "npm install && bower install ",
+    "start": "gulp build:dev && gulp server:dev",
     "database": "./node_modules/.bin/json-server --watch ./json/db.json &",
     "build": "gulp build:dev",
     "production": "gulp build:prod",
-    "test": "gulp test",
-    "documentation": "gulp documentation"
+    "pretest": "npm install",
+    "test": "karma start karma.conf.js --single-run",
+    "preprotractor": "webdriver-manager update",
+    "protractor": "protractor e2e-tests/protractor.conf.js"
   },
   "repository": "git+https://github.com/jimilucio/angularjs-course.git",
   "keywords": [
@@ -22,7 +25,12 @@
     "url": "https://github.com/jimilucio/angularjs-course/issues"
   },
   "homepage": "https://github.com/jimilucio/angularjs-course#readme",
-  "dependencies": {},
+  "dependencies": {
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-coverage-istanbul-reporter": "^1.4.2",
+    "karma-jasmine": "^1.1.1",
+    "karma-jasmine-html-reporter": "^1.0.0"
+  },
   "devDependencies": {
     "bower-files": "^4.0.0",
     "browser-sync": "^2.23.6",
@@ -42,6 +50,7 @@
     "gulp-strip-debug": "^3.0.0",
     "gulp-uglify": "^3.0.0",
     "http-server": "^0.11.1",
+    "jasmine": "^3.1.0",
     "jasmine-core": "^3.1.0",
     "jshint": "^2.9.5",
     "jshint-stylish": "^2.2.1",
@@ -49,8 +58,10 @@
     "karma": "^2.0.0",
     "karma-chrome-launcher": "^2.2.0",
     "karma-jasmine": "^1.1.1",
+    "karma-junit-reporter": "^1.2.0",
     "milligram": "^1.3.0",
     "path": "^0.12.7",
+    "protractor": "^5.3.1",
     "run-sequence": "^2.2.1"
   }
 }

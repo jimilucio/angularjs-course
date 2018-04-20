@@ -12,59 +12,71 @@ var ngAnnotate = require('gulp-ng-annotate');
 var config = require('./config');
 
 //Inject the application files into the html file.
-gulp.task('scripts:dev', function () {
+gulp.task('scripts:dev', function() {
+  var injectOptions = {
+    name: 'app',
+    addSuffix: '?v=' + new Date().getTime(),
+  };
 
-    var injectOptions = {
-        name: 'app',
-        addSuffix: '?v=' + new Date().getTime()
-    };
-
-    var scripts = gulp.src(config.appFiles('js', true)).pipe(angularFilesort());
-    return gulp.src(config.getViewPath())
-        .pipe(inject(scripts, injectOptions))
-        .pipe(gulp.dest(config.getRootPath()));
+  var jsAppFiles = config.appFiles('js', true);
+  console.log(jsAppFiles);
+  var scripts = gulp.src([jsAppFiles, '!**/*.spec.js'])
+    .pipe(angularFilesort());
+  
+    return gulp
+    .src(config.getViewPath())
+    .pipe(inject(scripts, injectOptions))
+    .pipe(gulp.dest(config.getRootPath()));
 });
 
 //Bundle the application files.
-gulp.task('scripts:prod:bundle:js', function () {
-    return gulp.src(config.appFiles('js', true))
-        .pipe(angularFilesort())
-        .pipe(concat('app.min.js'))
-        .pipe(ngAnnotate())
-        .pipe(stripDebug())
-        .pipe(uglify())
-        .pipe(gulp.dest(config.getDistPath()));
+gulp.task('scripts:prod:bundle:js', function() {
+  return gulp
+    .src(config.appFiles('js', true))
+    .pipe(angularFilesort())
+    .pipe(concat('app.min.js'))
+    .pipe(ngAnnotate())
+    .pipe(stripDebug())
+    .pipe(uglify())
+    .pipe(gulp.dest(config.getDistPath()));
 });
 
 //Bundle the template files.
-gulp.task('scripts:prod:bundle:html', function () {
+gulp.task('scripts:prod:bundle:html', function() {
+  var templateCacheOptions = {
+    module: 'ng-starter',
+    standalone: false,
+    filename: 'templates.min.js',
+    root: '/app',
+  };
 
-    var templateCacheOptions = {
-        module: 'ng-starter',
-        standalone: false,
-        filename: 'templates.min.js',
-        root: '/app'
-    };
-
-    return gulp.src(config.appFiles('html', true))
-        .pipe(templateCache(templateCacheOptions))
-        .pipe(stripDebug())
-        .pipe(uglify())
-        .pipe(gulp.dest(config.getDistPath()));
+  return gulp
+    .src(config.appFiles('html', true))
+    .pipe(templateCache(templateCacheOptions))
+    .pipe(stripDebug())
+    .pipe(uglify())
+    .pipe(gulp.dest(config.getDistPath()));
 });
 
 //Inject the js and html bundles into the html file.
-gulp.task('scripts:prod', ['scripts:prod:bundle:js', 'scripts:prod:bundle:html'], function () {
-
+gulp.task(
+  'scripts:prod',
+  ['scripts:prod:bundle:js', 'scripts:prod:bundle:html'],
+  function() {
     var injectOptions = {
-        name: 'app',
-        addSuffix: '?v=' + new Date().getTime(),
-        ignorePath: '/' + config.getDistPath()
+      name: 'app',
+      addSuffix: '?v=' + new Date().getTime(),
+      ignorePath: '/' + config.getDistPath(),
     };
 
-    var injectFiles = [path.join(config.getDistPath(), 'app.min.js'), path.join(config.getDistPath(), 'templates.min.js')];
+    var injectFiles = [
+      path.join(config.getDistPath(), 'app.min.js'),
+      path.join(config.getDistPath(), 'templates.min.js'),
+    ];
 
-    return gulp.src(path.join(config.getDistPath(), 'index.html'))
-        .pipe(inject(gulp.src(injectFiles), injectOptions))
-        .pipe(gulp.dest(config.getDistPath()));
-});
+    return gulp
+      .src(path.join(config.getDistPath(), 'index.html'))
+      .pipe(inject(gulp.src(injectFiles), injectOptions))
+      .pipe(gulp.dest(config.getDistPath()));
+  }
+);
